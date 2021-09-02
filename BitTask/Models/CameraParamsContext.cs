@@ -9,6 +9,6 @@ namespace BitTask.Models
         {
         }
 
-        public DbSet<CameraParams> TodoItems { get; set; }
+        public DbSet<CameraParams> CameraParamsList { get; set; }
     }
 }
