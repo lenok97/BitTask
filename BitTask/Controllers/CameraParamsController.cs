@@ -21,14 +21,14 @@ namespace BitTask.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<CameraParams>> GetCameraParams(long id)
         {
-            var todoItem = await _context.CameraParamsList.FindAsync(id);
+            var cameraParams = await _context.CameraParamsList.FindAsync(id);
 
-            if (todoItem == null)
+            if (cameraParams == null)
             {
                 return NotFound();
             }
 
-            return todoItem;
+            return cameraParams;
         }
 
         [HttpPost]
