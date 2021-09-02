@@ -20,6 +20,13 @@ namespace BitTask
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            using (var db = new CameraParamsContext())
+            {
+                db.Database.EnsureCreated();
+                db.Database.Migrate();
+            }
+
         }
 
         public IConfiguration Configuration { get; }
@@ -27,10 +34,10 @@ namespace BitTask
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CameraParamsContext>(opt =>
-                                               opt.UseInMemoryDatabase("CameraParams"));
+            services.AddEntityFrameworkSqlite().AddDbContext<CameraParamsContext>();
+
             services.AddControllers();
-            // Register the Swagger generator, defining 1 or more Swagger documents
+
             services.AddSwaggerGen();
         }
 
@@ -53,7 +60,6 @@ namespace BitTask
             {
                 endpoints.MapControllers();
             });
-
         }
     }
 }
