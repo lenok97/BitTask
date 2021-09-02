@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CameraAngle.cs = CameraAngle.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraApiTest", "..\CameraApiTest\CameraApiTest.csproj", "{947303F0-8218-40E3-ABFC-C0A438474953}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraParamsTest", "..\CameraParamsTest\CameraParamsTest.csproj", "{947303F0-8218-40E3-ABFC-C0A438474953}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
