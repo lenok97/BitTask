@@ -32,19 +32,31 @@ namespace BitTask.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CameraParams>> PostCameraParams(float distance, float cameraHeight)
+        public async Task<ActionResult<CameraParams>> PostCameraParams(float distance, float heightFromFloor)
         {
-            CameraParams cameraParams = new CameraParams(distance, cameraHeight);
+            CameraParams cameraParams = null;
+            // возвращаем статус ошибки, если данные запроса не корректны
+            try
+            { 
+            cameraParams = new CameraParams(distance, heightFromFloor);
+            }
+            catch (ArgumentException)
+            {
+                return BadRequest();
+            }
 
-            // сохраняет результат расчёта в базу данных
+            // сохраняет результат расчёта в базу данных 
             _context.CameraParamsList.Add(cameraParams);
             await _context.SaveChangesAsync();
-            var res = new Dictionary<string, float>();
-            res.Add("alpha", (float)Math.Round(cameraParams.Angle, 2));
-            res.Add("B", (float)Math.Round(cameraParams.B, 2));
-            // выводит расстояние B, см и угол вертикального наклона 
+            var result = new Dictionary<string, float>
+            {
+                { "alpha", (float)Math.Round(cameraParams.VerticalAngle, 2) },
+                { "B", (float)Math.Round(cameraParams.HeightFromObject, 2) }
+            };
+
+            // выводит расстояние B и угол вертикального наклона 
             return CreatedAtAction(nameof(GetCameraParams), new { id = cameraParams.Id },
-                res);
+                result);
         }
 
         [HttpGet]

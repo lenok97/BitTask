@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitTask", "BitTask.csproj", "{03BB4EC5-2B98-483E-B7DD-6D07B0E4EAD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitTask", "BitTask.csproj", "{03BB4EC5-2B98-483E-B7DD-6D07B0E4EAD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23E33FD0-C1B3-4A0D-954A-A6A4CCF20CD7}"
 	ProjectSection(SolutionItems) = preProject
 		CameraAngle.cs = CameraAngle.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraParamsTest", "..\CameraParamsTest\CameraParamsTest.csproj", "{947303F0-8218-40E3-ABFC-C0A438474953}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitTaskTest", "..\BitTaskTest\BitTaskTest.csproj", "{947303F0-8218-40E3-ABFC-C0A438474953}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,25 +6,25 @@ namespace BitTask
 	{
 		private float averageHumanHeight = 160;
 
-        public CameraParams(float distance, float cameraHeight)
+        public CameraParams(float distance, float heightFromFloor)
         {
             Distance = ValidateParam(distance);
-            CameraHeight = ValidateParam(cameraHeight);
+            HeightFromFloor = ValidateParam(heightFromFloor);
         }
 
         public long Id { get; set; }
 
 		public float Distance { get; set; }
 
-        public float CameraHeight { get; set; }
+        public float HeightFromFloor { get; set; }
 
-        public float B 
+        public float HeightFromObject 
         { get => 
-			Math.Abs(CameraHeight - averageHumanHeight); }
+			Math.Abs(HeightFromFloor - averageHumanHeight); }
 
-        public float Angle
+        public float VerticalAngle 
 		{ get => 
-				(float)((180 / Math.PI) * Math.Atan(B / Distance));}
+				(float)((180 / Math.PI) * Math.Atan(HeightFromObject / Distance));}
 
 		private float ValidateParam(float param)
         {

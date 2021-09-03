@@ -13,8 +13,8 @@ namespace BitTaskTest
         {
             var actual = new CameraParams(distance, height);
 
-            Assert.AreEqual(expectedB, Math.Round(actual.B, 2));
-            Assert.AreEqual(expectedAngle, Math.Round(actual.Angle, 2));
+            Assert.AreEqual(expectedB, Math.Round(actual.HeightFromObject, 2));
+            Assert.AreEqual(expectedAngle, Math.Round(actual.VerticalAngle, 2));
         }
 
         [TestCase(0, 400)]
