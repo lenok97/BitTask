@@ -48,15 +48,10 @@ namespace BitTask.Controllers
             // сохраняет результат расчёта в базу данных 
             _context.CameraParamsList.Add(cameraParams);
             await _context.SaveChangesAsync();
-            var result = new Dictionary<string, float>
-            {
-                { "alpha", (float)Math.Round(cameraParams.VerticalAngle, 2) },
-                { "B", (float)Math.Round(cameraParams.HeightFromObject, 2) }
-            };
 
-            // выводит расстояние B и угол вертикального наклона 
+            // выводит результат 
             return CreatedAtAction(nameof(GetCameraParams), new { id = cameraParams.Id },
-                result);
+                cameraParams);
         }
 
         [HttpGet]
